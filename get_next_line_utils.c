@@ -16,7 +16,7 @@ size_t	ft_strlen_gnl(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i] && s)
+	while (s && s[i])
 		i++;
 	return (i);
 }
@@ -32,6 +32,7 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s);
 	return (NULL);
 }
+
 char	*ft_strjoin_gnl(char const *s1, const char *s2)
 {
 	char	*str;
@@ -72,7 +73,7 @@ char	*ft_substr_gnl(char const *s, unsigned int start, size_t len)
 		len = slen - start;
 	if (start >= slen)
 		return (ft_strdup_gnl(""));
-	sub = malloc(sizeof(char) * (len + 1));
+	sub = malloc(sizeof(char) * (slen + 1));
 	if (sub == NULL)
 		return (NULL);
 	while (i < len)
@@ -88,14 +89,16 @@ char	*ft_strdup_gnl(const char *s1)
 {
 	char		*dup;
 	size_t		i;
+	size_t		slengh;
 
 	i = 0;
-	dup = malloc((ft_strlen_gnl(s1) + 1) * sizeof(char));
-	if (!dup)
+	slengh = ft_strlen_gnl(s1);
+	dup = malloc(sizeof(char) * slengh + 1);
+	if (dup == NULL)
 		return (NULL);
-	while (s1[i])
+	while (s1 && s1[i])
 	{
-		dup[i] = s1[i];
+		dup[i] = (*(char *)&s1[i]);
 		i++;
 	}
 	dup[i] = '\0';

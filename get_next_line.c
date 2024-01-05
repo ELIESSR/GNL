@@ -21,9 +21,9 @@ char	*read_line(int fd, char *strs)
 	aux = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!aux)
 		return (NULL);
-	while (!strs || (!ft_strchr(strs, '\n') && rb != 0))
+	while (!strs || (!ft_strchr(strs, '\n') && rb > 0))
 	{
-		rb = read(fd, aux, BUFFER_SIZE); /*menos averigua dios y perdona*/
+		rb = read(fd, aux, BUFFER_SIZE);
 		if (rb == -1)
 		{
 			free(aux);
@@ -65,7 +65,7 @@ char	*ft_printer(char **s)
 
 	i = 0;
 	aux = *s;
-	while (*s && (*s)[i] && (*s)[i] != '\n')//no entiendo bien
+	while (*s && (*s)[i] && (*s)[i] != '\n')
 		i++;
 	if ((*s) && (*s)[i] == '\n')
 		i++;
