@@ -15,11 +15,8 @@
 # include <ctype.h>
 # include <unistd.h>
 # include <string.h>
-# include <stddef.h>
 # include <stdlib.h>
-# include <limits.h>
 # include <fcntl.h>
-# include <stdio.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42 

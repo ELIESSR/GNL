@@ -39,24 +39,6 @@ char	*read_line(int fd, char *strs)
 	return (strs);
 }
 
-char	*get_next_line(int fd)
-{
-	static char	*aux;
-	char		*result;
-
-	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE >= INT_MAX)
-		return (NULL);
-	aux = read_line(fd, aux);
-	if (!aux || !aux[0])
-	{
-		free(aux);
-		aux = NULL;
-		return (NULL);
-	}
-	result = ft_printer(&aux);
-	return (result);
-}
-
 char	*ft_printer(char **s)
 {
 	char	*r;
@@ -82,21 +64,20 @@ char	*ft_printer(char **s)
 	return (r);
 }
 
-/*int	main(void)
+char	*get_next_line(int fd)
 {
-	char	*f1;
-	int		fd;
-	char	*str;
+	static char	*aux;
+	char		*result;
 
-	f1 = "prueba.txt";
-	fd = open(f1, O_RDONLY);
-	str = get_next_line(fd);
-	while (str)
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	aux = read_line(fd, aux);
+	if (!aux || !aux[0])
 	{
-		printf("%s", str);
-		str = get_next_line(fd);
-		free(str);
+		free(aux);
+		aux = NULL;
+		return (NULL);
 	}
-	system("leaks -q a.out");
-	return (0);
-}*/
+	result = ft_printer(&aux);
+	return (result);
+}

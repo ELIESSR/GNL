@@ -98,7 +98,7 @@ char	*ft_strdup_gnl(const char *s1)
 		return (NULL);
 	while (s1 && s1[i])
 	{
-		dup[i] = (*(char *)&s1[i]);
+		dup[i] = s1[i];
 		i++;
 	}
 	dup[i] = '\0';
