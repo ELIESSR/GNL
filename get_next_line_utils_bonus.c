@@ -9,7 +9,7 @@
 /*   Updated: 2024/01/03 19:07:16 by elteran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen_gnl(const char *s)
 {
@@ -33,7 +33,7 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strjoin_gnl(char const *s1, const char *s2)
+/* char	*ft_strjoin_gnl(char *s1, char *s2)
 {
 	char	*str;
 	size_t	i;
@@ -56,6 +56,34 @@ char	*ft_strjoin_gnl(char const *s1, const char *s2)
 		i++;
 	}
 	str[i] = '\0';
+    free(s1);
+	return (str);
+} */
+
+char	*ft_strjoin_gnl(char *s1, char *s2)
+{
+	char	*str;
+	int		i;
+	int		j;
+
+	i = -1;
+	j = -1;
+	if (!s1)
+	{
+		s1 = malloc(sizeof(char) * 1);
+		s1[0] = '\0';
+	}
+	if (!s1 || !s2)
+		return (NULL);
+	str = malloc((ft_strlen_gnl(s1) + ft_strlen_gnl(s2) + 1) * sizeof (char));
+	if (str == (0))
+		return (0);
+	while (s1[++i] != '\0')
+		str[i] = s1[i];
+	while (s2[++j] != '\0')
+		str[i + j] = s2[j];
+	str[ft_strlen_gnl(s1) + ft_strlen_gnl(s2)] = '\0';
+	free(s1);
 	return (str);
 }
 

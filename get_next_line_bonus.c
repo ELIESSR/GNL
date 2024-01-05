@@ -9,7 +9,12 @@
 /*   Updated: 2024/01/03 19:06:40 by elteran          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
+
+void ft_leaks(void)
+{
+	system("leaks -q a.out");
+}
 
 char	*read_line(int fd, char *strs)
 {
@@ -19,6 +24,7 @@ char	*read_line(int fd, char *strs)
 
 	rb = 1;
 	aux = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	//printf("Esta es la dirección de aux%p\n", aux);
 	if (!aux)
 		return (NULL);
 	while (!strs || (!ft_strchr(strs, '\n') && rb > 0))
@@ -66,19 +72,19 @@ char	*ft_printer(char **s)
 
 char	*get_next_line(int fd)
 {
-	static char	*aux;
+	static char	*aux[4096];
 	char		*result;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	aux = read_line(fd, aux);
-	if (!aux || !aux[0])
+	aux[fd] = read_line(fd, aux[fd]);
+	if (!aux[fd])
 	{
-		free(aux);
-		aux = NULL;
+		free(aux[fd]);
+		aux[fd] = NULL;
 		return (NULL);
 	}
-	result = ft_printer(&aux);
+	result = ft_printer(&aux[fd]);
 	return (result);
 }
 
@@ -87,12 +93,14 @@ char	*get_next_line(int fd)
 	int fd = open("only_nl.txt", O_RDONLY);
 	char *manolo;
 
+	atexit(ft_leaks);
  	while(manolo)
 	{
 		manolo = get_next_line(fd);
 		printf("%s", manolo);
-	} 
-	manolo = get_next_line(fd);
+	}
+
+ 	manolo = get_next_line(fd);
 	printf("%s", manolo);
 	manolo = get_next_line(fd);
 	printf("%s", manolo);
