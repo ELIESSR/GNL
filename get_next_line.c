@@ -69,6 +69,13 @@ char	*ft_printer(char **s)
 	}
 	return (r);
 }
+//la función tiene la intención de modificar la cadena original (*s)
+//y, por lo tanto, necesita recibir una referencia al puntero original.
+//En C, cuando pasas una variable a una función, se pasa por valor,
+//lo que significa que la función trabaja con una copia de la variable.
+//Sin embargo, cuando pasas un puntero a una función,
+//la función puede modificar el contenido al que apunta el puntero. 
+//////////////////////////////////////////////////
 //la funcion sirve para tomar 
 //todos los valores de la cadena 
 //hasta el salto de linea o el nulo.
