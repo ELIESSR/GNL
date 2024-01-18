@@ -23,7 +23,7 @@ char	*read_line(int fd, char *strs)
 		return (NULL);
 	while (!strs || (!ft_strchr(strs, '\n') && rb > 0))
 	{
-		// Leer del descriptor de archivo fd al búfer auxiliar
+		// Leer del descriptor de archivo fd al búfer  auxiliar 
 		rb = read(fd, aux, BUFFER_SIZE);
 		if (rb == -1)
 		{

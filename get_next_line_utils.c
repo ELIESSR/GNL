@@ -112,4 +112,4 @@ char	*ft_strdup_gnl(const char *s1)
 }
 //La función asigna suficiente memoria para una copia de la cadena s1,
 //realiza la copia y devuelve un puntero a ella.
-//útil en situaciones donde necesitas trabajar con una copia independiente de la cadena original.
+//útil en situaciones donde necesitas trabajar con una copia independiente de la cadena  original.
