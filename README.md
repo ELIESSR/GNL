@@ -16,7 +16,7 @@ En resumen, la función get_next_line proporciona una forma conveniente y eficie
 
 ---
 Como funciona❔
----
+----
 ## get_next_line
 ```c
 char	*get_next_line(int fd)
