@@ -53,7 +53,6 @@ La función devuelve un puntero a la primera línea extraída de la cadena de ca
 char *line = ft_printer(&str);
 ```
 ---
-
 Espero que esta documentación sea útil. Si necesitas más ayuda, ¡no dudes en preguntar!
 
 
