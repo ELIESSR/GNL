@@ -1,5 +1,19 @@
 # Get Next Line
+---
+La función get_next_line se utiliza para leer líneas de texto de un archivo o descriptor de archivo en C. Está diseñada para leer de manera eficiente líneas de un archivo, una a la vez, sin tener que leer todo el archivo de una sola vez en la memoria.
 
+Aquí hay una descripción detallada de lo que hace la función:
+
+Lee una línea del archivo: Utiliza la función read_line para leer una línea completa del archivo. Esta función se encarga de leer una línea del descriptor de archivo proporcionado.
+
+Extrae la primera línea: Utiliza la función ft_printer para extraer la primera línea de la cadena de caracteres obtenida del archivo. Esta función encuentra el índice del primer salto de línea o el final de la cadena y extrae la parte de la cadena hasta ese punto.
+
+Actualiza el estado interno: La función get_next_line utiliza una variable estática para mantener el estado entre llamadas. Esto le permite continuar leyendo desde donde lo dejó en la última llamada. Después de leer una línea, actualiza la variable estática para excluir la línea que acaba de leer.
+
+Devuelve la línea leída: Devuelve un puntero a la línea leída del archivo. El usuario puede entonces utilizar esta línea en su programa.
+
+En resumen, la función get_next_line proporciona una forma conveniente y eficiente de leer líneas de un archivo en C, facilitando el procesamiento de archivos de texto línea por línea sin cargar todo el archivo en la memoria.
+---
 ## get_next_line
 ```c
 char	*get_next_line(int fd)
