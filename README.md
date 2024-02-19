@@ -4,7 +4,6 @@
 ```c
 char	*get_next_line(int fd)
 ```
----
 ### Descripción
 Esta función toma un descriptor de archivo y devuelve la próxima línea disponible desde ese descriptor. Utiliza una variable estática para mantener el estado entre llamadas y asegurar que pueda continuar leyendo desde donde lo dejó en la última llamada.
 
@@ -23,7 +22,6 @@ char *line = get_next_line(fd);
 ```c
 char	*read_line(int fd, char *strs)
 ```
----
 ### Descripción
 Esta función se encarga de leer una línea desde el descriptor de archivo especificado (fd) y almacenarla en una cadena de caracteres (strs). Utiliza un bucle para leer bloques de datos del archivo hasta encontrar un salto de línea o hasta que no haya más datos para leer.
 
@@ -54,16 +52,8 @@ La función devuelve un puntero a la primera línea extraída de la cadena de ca
 ```c
 char *line = ft_printer(&str);
 ```
-get_next_line
+---
 
-char	*get_next_line(int fd)
-Descripción
-Esta función toma un descriptor de archivo y devuelve la próxima línea disponible desde ese descriptor. Utiliza una variable estática para mantener el estado entre llamadas y asegurar que pueda continuar leyendo desde donde lo dejó en la última llamada.
+Espero que esta documentación sea útil. Si necesitas más ayuda, ¡no dudes en preguntar!
 
-Parámetros
-fd: El descriptor de archivo del cual se leerá la próxima línea.
-Devolución
-La función devuelve un puntero a la siguiente línea disponible desde el descriptor de archivo especificado.
-
-Uso
 
