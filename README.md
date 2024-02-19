@@ -15,4 +15,7 @@ strs: La cadena de caracteres en la que se almacenará la línea leída.
 Devolución
 La función devuelve un puntero a la cadena de caracteres que contiene la línea leída, o NULL si ocurre algún error durante la lectura.
 
-###Uso
+### Uso
+```c
+char *line = read_line(fd, NULL);
+```
